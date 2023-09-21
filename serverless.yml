@@ -1,0 +1,30 @@
+service: aws-cost-notification
+
+provider:
+  name: aws
+  runtime: python3.11
+  region: ap-northeast-1
+  role: arn:aws:iam::544914028607:role/service-role/aws_cost_notification-role-fkpwxivi
+  environment:
+    LINEPostURL: https://notify-api.line.me/api/notify
+    # The following token will be updated on lambda config
+    LINEtoken: LINE_TOKEN
+
+functions:
+  aws_cost_notification:
+    handler: lambda_function.notify
+    description: notification service to let users know about aws cost
+    events:
+      - schedule: cron(40 23 * * ? *) # Executed every day at 10:30 JTC
+    timeout: 300
+    memorySize: 128
+    environment:
+      LINEPostURL: ${self:provider.environment.LINEPostURL}
+      LINEtoken: ${self:provider.environment.LINEtoken}
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
