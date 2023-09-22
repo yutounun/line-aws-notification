@@ -15,7 +15,7 @@ functions:
     handler: lambda_function.notify
     description: notification service to let users know about aws cost
     events:
-      - schedule: cron(40 23 * * ? *) # Executed every day at 10:30 JTC
+      - schedule: cron(48 23 * * ? *) # Executed every day at 10:30 JTC
     timeout: 300
     memorySize: 128
     environment:

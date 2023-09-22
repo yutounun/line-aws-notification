@@ -6,11 +6,11 @@ import datetime
 
 def notify(event, context):
     client = boto3.client("ce")
-    today = datetime.date.today()
+    today = datetime.date.today().strftime("%Y-%m-%d")
     response = client.get_cost_and_usage(
         TimePeriod={
-            "Start": today,
-            "End": today,
+            "Start": "2023-09-01",
+            "End": "2023-09-30",
         },
         Granularity="DAILY",
         Metrics=["BlendedCost"],
