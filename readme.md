@@ -1,6 +1,7 @@
 # About this application
 
-<img width="873" alt="image" src="https://github.com/yutounun/line-aws-notification/assets/96335290/d8d495d3-41cd-4e85-947a-814aa02c681b">
+<img width="895" alt="image" src="https://github.com/yutounun/line-aws-notification/assets/96335290/76ae4842-1d01-457a-9b68-d3544dce8051">
+
 
 
 What I'd like to achieve with this app is to help thousands of ppl to overcome traumas related to AWS cost system lol
